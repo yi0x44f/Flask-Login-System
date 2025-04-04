@@ -1,7 +1,4 @@
-from sqlalchemy import text
-from flask import jsonify, request, session, Flask
-from app.models import User
-from app import create_app, db
+from app import create_app
 from app.routes.auth import auth_bp
 from app.routes.dashboard import dashboard_bp
 

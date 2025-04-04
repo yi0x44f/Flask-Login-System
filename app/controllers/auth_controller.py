@@ -37,9 +37,8 @@ def register_user(request):
     if User.query.filter_by(name=name).first():
         return jsonify({'message': 'Name already exists!'}), 400
 
-    hashed_password = generate_password_hash(password)
-    new_user = User(name=name, email=email, password=hashed_password)
-
+    new_user = User(name=name, email=email, password=password)
+    
     try:
         new_user.save()
         return jsonify({
