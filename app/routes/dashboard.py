@@ -7,5 +7,6 @@ dashboard_bp = Blueprint('dashboard', __name__)
 @dashboard_bp.route('/dashboard', methods=['GET'])
 @jwt_required()
 def dashboard():
-    current_user = get_jwt_identity()
-    return get_dashboard_data(current_user)
+    return jsonify({
+        'message': 'Hi'
+    }),200

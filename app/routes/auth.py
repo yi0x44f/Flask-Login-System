@@ -1,5 +1,6 @@
-from flask import Blueprint, jsonify, request
-from app.controllers.auth_controller import login_user, register_user, logout_user
+from flask import Blueprint, request
+from app.controllers.auth_controller import login_user, register_user, logout_user, refresh_user
+from flask_jwt_extended import jwt_required
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -14,3 +15,8 @@ def register():
 @auth_bp.route('/logout', methods=['POST'])
 def logout():
     return logout_user()
+
+@auth_bp.route('/refresh', methods=['POST'])
+@jwt_required(refresh=True)
+def refresh():
+    return refresh_user()
