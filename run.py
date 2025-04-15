@@ -1,6 +1,6 @@
 from app import create_app
 from app.routes.auth import auth_bp
-from app.routes.dashboard import dashboard_bp
+from app.routes.api import api_bp
 
 app = create_app()
 
@@ -10,7 +10,7 @@ def hello_world():
 
 # Register blueprints
 app.register_blueprint(auth_bp, url_prefix='/auth')
-app.register_blueprint(dashboard_bp, url_prefix='/api')
+app.register_blueprint(api_bp, url_prefix='/api')
 
 if __name__ == '__main__':
     app.run(debug=True)

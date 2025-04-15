@@ -19,4 +19,4 @@ def logout():
 @auth_bp.route('/refresh', methods=['POST'])
 @jwt_required(refresh=True)
 def refresh():
-    return refresh_user()
+    return refresh_user(request)

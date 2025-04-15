@@ -13,5 +13,8 @@ class Config:
     SECRET_KEY = os.getenv("FLASK_APP_SECRET_KEY")
     # JWT secret key for encoding and decoding tokens
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
-    JWT_ACCESS_TOKEN_EXPIRES = timedelta(days=1)  # Access token expiration time
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=60)  # Access token expiration time
+    JWT_REFRESH_TOKEN_EXPIRES = timedelta(days=30)  # Refresh token expiration time
+    # SESSION COOKIE
+    SESSION_COOKIE_SECURE = True
 
